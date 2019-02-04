@@ -20,11 +20,11 @@ I'm sure many frameworks use simpler syntax to create forms, but at my job we st
 
 ## Features
 
---Can generate all commonly used form elements.
---Generates PHP variable code for each element.
---Ability to specify form submission method (GET, POST, your custom function, etc.)
---Can generate associate labels
---Can create wrapping elements for each form element
+-Can generate all commonly used form elements.
+-Generates PHP variable code for each element.
+-Ability to specify form submission method (GET, POST, your custom function, etc.)
+-Can generate associate labels
+-Can create wrapping elements for each form element
 
 ## Examples
 This:
