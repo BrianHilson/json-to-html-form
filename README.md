@@ -1,4 +1,4 @@
-# json-to-html-form
+# JSON to HTML Form
 
 ## Demo
 (https://www.hilson.io/form_builder_app/)
