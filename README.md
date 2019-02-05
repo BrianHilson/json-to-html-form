@@ -20,16 +20,20 @@ I'm sure many frameworks use simpler syntax to create forms, but at my job we st
 
 ## Features
 
-- Can generate all commonly used form elements.
+- Generates all commonly used form elements.
 - Generates PHP variable code for each element.
 - Ability to specify form submission method (GET, POST, your custom function, etc.)
-- Can generate associate labels
-- Can create wrapping elements for each form element
+- Generates labels for each element
+- Generates wrapping elements for each form element
 
-## Examples
+## Example
 This:
 ```JSON
 {
+  "settings": {
+    "requestMethod": "$_GET['VAR']",
+    "requestMethodMany": ""
+  },  
   "form": [
     {
       "element": "input",
@@ -51,4 +55,39 @@ $xFIRST_NAME = $_GET['xFIRST_NAME']);
   <input type="text" name="xFIRST_NAME" value="" id="xFIRST_NAME" required placeholder="First Name"> 
 </div> 
 ```
+Let break this down. 
+
+## Settings
+
+### requestMethod
+Determines the form submission method for PHP. This can be whatever you would like. "VAR" is replaced with the name of the form element. If empty, it defaults to "$_POST['VAR']".
+
+### requestMethodMany
+You may use a different submission method for elements with multiple values, like checkboxes. You can set that method here. If empty, it defaults to "requestMethod".
+
+## form
+Contains an array of form elements.
+
+### element
+Valid options are input, select, textarea, and button. Datalist is soon to be added.
+
+### type
+Can be anything you would like. Special handling for input radio and input checkbox.
+
+### name
+Name is used for the form element name and id, label for, and PHP variables. 
+
+### text
+Sets the label text, and the value for input checkbox, input radio, and select options.
+
+### wrapper
+Creates a wrapping element for the form element. Specify the wrapping element, followed by any classes you'd like to include.
+
+### noLabel
+Specifies that this element doesn't have a label associated with it.
+
+### Additional Properties
+"required" is an additional property in this case. Any property added without special handling (element, name, text, etc.) will be simply added to the form element. If the property doesn't have an associated value, just set it as empty ("").
+
+
 
