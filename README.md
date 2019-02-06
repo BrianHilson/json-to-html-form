@@ -26,7 +26,8 @@ I'm sure many frameworks use simpler syntax to create forms, but at my job we st
 - Generates labels for each element
 - Generates wrapping elements for each form element
 
-## Example
+## Example: Text Input
+
 This:
 ```JSON
 {
@@ -38,9 +39,9 @@ This:
     {
       "element": "input",
       "type": "text",
-      "name": "xFIRST_NAME",
-      "text": "First Name",
-      "wrapper": "div.input.half",
+      "name": "FULL_NAME",
+      "text": "Full Name",
+      "wrapper": "div.input.full",
       "noLabel": "true",
       "required": ""
     }
@@ -49,15 +50,15 @@ This:
 ```
 generates this:
 ```PHP
-$xFIRST_NAME = $_GET['xFIRST_NAME']);
+$FULL_NAME = $_GET['FULL_NAME']);
  
-<div class="input half">
-  <input type="text" name="xFIRST_NAME" value="" id="xFIRST_NAME" required placeholder="First Name"> 
+<div class="input full">
+  <input type="text" name="FULL_NAME" value="" id="FULL_NAME" required> 
 </div> 
 ```
 Let break this down. 
 
-## Settings
+## settings
 
 ### requestMethod
 Determines the form submission method for PHP. This can be whatever you would like. "VAR" is replaced with the name of the form element. If empty, it defaults to "$_POST['VAR']".
@@ -81,13 +82,73 @@ Name is used for the form element name and id, label for, and PHP variables.
 Sets the label text, and the value for input checkbox, input radio, and select options.
 
 ### wrapper
-Creates a wrapping element for the form element. Specify the wrapping element, followed by any classes you'd like to include.
+Creates a wrapping element for the form element. Specify the wrapping element, followed by any classes you'd like to include, seperated by periods.
 
 ### noLabel
 Specifies that this element doesn't have a label associated with it.
 
 ### Additional Properties
-"required" is an additional property in this case. Any property added without special handling (element, name, text, etc.) will be simply added to the form element. If the property doesn't have an associated value, just set it as empty ("").
+"required" is an additional property in this case. Any property added without special handling (element, name, text, etc.) will be simply added to the form element. If the property doesn't have an associated value, as is the case with "required", just set the value to empty ("").
 
-
-
+## Example: Radio Input
+This:
+```JSON
+{
+  "settings": {
+    "requestMethod": "$_GET['VAR']",
+    "requestMethodMany": ""
+  },
+  "form": [
+    {
+      "element": "input",
+      "type": "radio",
+      "name": "HOGWARTS_HOUSE",
+      "many": [
+        {
+          "id": "GRYFFINDOR",
+          "text": "Gryffindor",
+          "value": "Gryffindor",
+          "wrapper": "div.input.quarter"
+        },
+        {
+          "id": "RAVENCLAW",
+          "text": "Ravenclaw",
+          "wrapper": "div.input.quarter",
+          "checked": ""
+        },
+        {
+          "id": "SLYTHERIN",
+          "text": "Slytherin",
+          "wrapper": "div.input.quarter"
+        },
+        {
+          "id": "HUFFLEPUFF",
+          "text": "Hufflepuff",
+          "wrapper": "div.input.quarter"
+        }
+      ]
+    }
+  ]
+}
+```
+Generates this:
+```PHP
+$HOGWARTS_HOUSE = $_GET['HOGWARTS_HOUSE']);
+ 
+<div class="input quarter">
+  <label for="GRYFFINDOR">Gryffindor</label>
+  <input type="radio" name="HOGWARTS_HOUSE" value="Gryffindor" id="GRYFFINDOR"> 
+</div> 
+<div class="input quarter">
+  <label for="RAVENCLAW">Ravenclaw</label>
+  <input type="radio" name="HOGWARTS_HOUSE" value="Ravenclaw" id="RAVENCLAW" checked> 
+</div> 
+<div class="input quarter">
+  <label for="SLYTHERIN">Slytherin</label>
+  <input type="radio" name="HOGWARTS_HOUSE" value="Slytherin" id="SLYTHERIN"> 
+</div> 
+<div class="input quarter">
+  <label for="HUFFLEPUFF">Hufflepuff</label>
+  <input type="radio" name="HOGWARTS_HOUSE" value="Hufflepuff" id="HUFFLEPUFF"> 
+</div> 
+```
