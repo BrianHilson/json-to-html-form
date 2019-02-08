@@ -99,42 +99,37 @@ The radio input, checkbox input, select, and datalist elements all use the "many
 
 ## Example: Radio Input
 
+Note: The remaining example do not include the "settings" or "form" syntax, just the syntax for each individual element. See the demo above for an example of creating a form with many elements.
+
 This:
 ```JSON
+
 {
-  "settings": {
-    "requestMethod": "$_GET['VAR']",
-    "requestMethodMany": ""
-  },
-  "form": [
+  "element": "input",
+  "type": "radio",
+  "name": "HOGWARTS_HOUSE",
+  "many": [
     {
-      "element": "input",
-      "type": "radio",
-      "name": "HOGWARTS_HOUSE",
-      "many": [
-        {
-          "id": "GRYFFINDOR",
-          "text": "Gryffindor",
-          "value": "Gryffindor",
-          "wrapper": "div.input.quarter"
-        },
-        {
-          "id": "RAVENCLAW",
-          "text": "Ravenclaw",
-          "wrapper": "div.input.quarter",
-          "checked": ""
-        },
-        {
-          "id": "SLYTHERIN",
-          "text": "Slytherin",
-          "wrapper": "div.input.quarter"
-        },
-        {
-          "id": "HUFFLEPUFF",
-          "text": "Hufflepuff",
-          "wrapper": "div.input.quarter"
-        }
-      ]
+      "id": "GRYFFINDOR",
+      "text": "Gryffindor",
+      "value": "Gryffindor",
+      "wrapper": "div.input.quarter"
+    },
+    {
+      "id": "RAVENCLAW",
+      "text": "Ravenclaw",
+      "wrapper": "div.input.quarter",
+      "checked": ""
+    },
+    {
+      "id": "SLYTHERIN",
+      "text": "Slytherin",
+      "wrapper": "div.input.quarter"
+    },
+    {
+      "id": "HUFFLEPUFF",
+      "text": "Hufflepuff",
+      "wrapper": "div.input.quarter"
     }
   ]
 }
@@ -171,49 +166,41 @@ $HOGWARTS_HOUSE = $_GET['HOGWARTS_HOUSE']);
 This:
 ```JSON
 {
-  "settings": {
-    "requestMethod": "$_GET['VAR']",
-    "requestMethodMany": ""
-  },
-  "form": [
+  "element": "input",
+  "type": "checkbox",
+  "name": "PREFERRED_CLASSES",
+  "many": [
     {
-      "element": "input",
-      "type": "checkbox",
-      "name": "PREFERRED_CLASSES",
-      "many": [
-        {
-          "id": "ASTRONOMY",
-          "text": "Astronomy"
-        },
-        {
-          "id": "CHARMS",
-          "text": "Charms"
-        },
-        {
-          "id": "DEFENCE_AGAINST_THE_DARK_ARTS",
-          "text": "Defence Against the Dark Arts"
-        },
-        {
-          "id": "FLYING",
-          "text": "Flying"
-        },
-        {
-          "id": "HERBOLOGY",
-          "text": "Herbology"
-        },
-        {
-          "id": "HISTORY_OF_MAGIC",
-          "text": "History of Magic"
-        },
-        {
-          "id": "POTIONS",
-          "text": "Potions"
-        },
-        {
-          "id": "TRANSFIGURATION",
-          "text": "Transfiguration"
-        }
-      ]
+      "id": "ASTRONOMY",
+      "text": "Astronomy"
+    },
+    {
+      "id": "CHARMS",
+      "text": "Charms"
+    },
+    {
+      "id": "DEFENCE_AGAINST_THE_DARK_ARTS",
+      "text": "Defence Against the Dark Arts"
+    },
+    {
+      "id": "FLYING",
+      "text": "Flying"
+    },
+    {
+      "id": "HERBOLOGY",
+      "text": "Herbology"
+    },
+    {
+      "id": "HISTORY_OF_MAGIC",
+      "text": "History of Magic"
+    },
+    {
+      "id": "POTIONS",
+      "text": "Potions"
+    },
+    {
+      "id": "TRANSFIGURATION",
+      "text": "Transfiguration"
     }
   ]
 }
@@ -249,34 +236,26 @@ $PREFERRED_CLASSES = $_GET['PREFERRED_CLASSES[]']);
 This:
 ```JSON
 {
-  "settings": {
-    "requestMethod": "$_GET['VAR']",
-    "requestMethodMany": ""
-  },
-  "form": [
+  "element": "select",
+  "name": "FAVORITE_CANDY",
+  "multiple": "",
+  "text": "Favorite Candy",
+  "many": [
     {
-      "element": "select",
-      "name": "FAVORITE_CANDY",
-      "multiple": "",
-      "text": "Favorite Candy",
-      "many": [
-        {
-          "value": "CHOCOLATE_FROG",
-          "text": "Chocolate Frog"
-        },
-        {
-          "value": "ACID_POPS",
-          "text": "Acid Pops"
-        },
-        {
-          "value": "JELLY_SLUGS",
-          "text": "Jelly Slugs"
-        },
-        {
-          "value": "BERTIE_BOTTS_EVERY_FLAVOUR_BEANS",
-          "text": "Bertie Bott&apos;s Every Flavour Beans"
-        }
-      ]
+      "value": "CHOCOLATE_FROG",
+      "text": "Chocolate Frog"
+    },
+    {
+      "value": "ACID_POPS",
+      "text": "Acid Pops"
+    },
+    {
+      "value": "JELLY_SLUGS",
+      "text": "Jelly Slugs"
+    },
+    {
+      "value": "BERTIE_BOTTS_EVERY_FLAVOUR_BEANS",
+      "text": "Bertie Bott&apos;s Every Flavour Beans"
     }
   ]
 }
@@ -302,17 +281,9 @@ $FAVORITE_CANDY = $_GET['FAVORITE_CANDY[]']);
 This:
 ```JSON
 {
-  "settings": {
-    "requestMethod": "$_GET['VAR']",
-    "requestMethodMany": ""
-  },
-  "form": [
-    {
-      "element": "textarea",
-      "name": "MUGGLE_COMMENTS``",
-      "text": "Tell us your least favourite thing about muggles:"
-    }
-  ]
+  "element": "textarea",
+  "name": "MUGGLE_COMMENTS``",
+  "text": "Tell us your least favourite thing about muggles:"
 }
 ```
 Generates this:
@@ -328,19 +299,11 @@ $MUGGLE_COMMENTS = $_GET['MUGGLE_COMMENTS']);
 This:
 ```JSON
 {
-  "settings": {
-    "requestMethod": "$_GET['VAR']",
-    "requestMethodMany": ""
-  },
-  "form": [
-    {
-      "element": "button",
-      "name": "SUBMIT",
-      "text": "Click to Submit",
-      "class": "submit-button",
-      "type": "submit"
-    }
-  ]
+  "element": "button",
+  "name": "SUBMIT",
+  "text": "Click to Submit",
+  "class": "submit-button",
+  "type": "submit"
 }
 ```
 Generates this:
