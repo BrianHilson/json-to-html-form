@@ -1,0 +1,121 @@
+/* General Settings */
+
+html {
+  font-size: 16px;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+
+@media screen and (max-width: 900px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+body {
+  background-color: #1E2128;
+  margin: 0;
+  color: #C3C3C3;
+}
+
+h1 {
+  color: #C3C3C3;
+  text-align: center;
+  margin: 2rem auto;
+  font-size: 48px;  
+}
+
+textarea,
+button {
+  background-color: #1E2128;
+  color: #C3C3C3;
+  border: 2px solid #C3C3C3;
+  border-radius: 4px;
+}
+
+textarea {
+  font-family: 'Anonymous Pro', monospace;
+  font-size: 1rem;  
+  line-height: 1.2rem;
+}
+
+button {
+  color: #C3C3C3;
+  font-size: 1rem;
+}
+
+button:hover {
+  color: #cccccc;
+  border-color: #cccccc;
+  cursor: pointer;}
+
+.row {
+  display: flex;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.column button,
+.column div {
+  width: 100%;
+  max-width: 800px;
+}
+
+.column textarea,
+.main .output {
+  width: 100%;
+  max-width: calc(800px - 4rem);
+}
+
+.main .header-container {
+  flex: 0 0 100%;
+  display: flex;
+  background-color: #191C21;  
+  box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.8);  
+}
+
+.main .input,
+.main .output {
+  font-family: 'Anonymous Pro', monospace;
+  line-height: 1.2rem;
+}
+
+.main .input {
+  margin: 2.75rem auto 0 auto;
+  padding: 2rem;
+}
+
+.main button.create {
+  margin: 2rem auto;
+  padding: .5rem;
+}
+
+.main .output {
+  margin: 0 auto 2rem auto;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  border: 2px solid #C3C3C3;
+  padding: 2rem;
+}
+
+@media screen and (max-width: 850px) {
+  .column button,
+  .column div {
+    width: 100%;
+    max-width: calc(100% - 2rem);
+  }
+  
+  .column textarea,
+  .main .output {
+    width: 100%;
+    max-width: calc(100% - 6rem);
+  }
+}

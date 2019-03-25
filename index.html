@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Form Builder</title>
+  <meta name="author" content="Brian Hilson">
+  <meta name="description" content="A simple form builder">
+  <link rel="stylesheet" href="styles/meyer-reset.css" type="text/css">
+  <link rel="stylesheet" href="styles/styles.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">   
+  <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro" rel="stylesheet">   
+  </head>
+  <body>
+    <div class='main'>
+      <div class="row">
+          <div class="header-container">
+              <h1>JSON to HTML/PHP Form</h1>
+          </div>
+      </div>
+      <div class="column">
+        <textarea class="input" spellcheck="false" name="" id="" cols="60" rows="50"></textarea>
+        <button class="create">Create Form</button>
+        <div class="output"></div>
+      </div>
+    </div>
+  </body>
+</html>
+<script src="scripts/form-builder.js"></script>
+<script>
+
+    var formBuilderElements = {
+      inputElement: document.querySelector('.input'),
+      createFormButton: document.querySelector('.create'),
+      outputElement: document.querySelector('.output')
+    };
+  
+    var formBuilder = FormBuilder;
+    formBuilder.initialize(formBuilderElements);
+  
+</script>
