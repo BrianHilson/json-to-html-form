@@ -14,6 +14,7 @@ var FormBuilder = (function() {
   var specialProperties = ['element', 'type', 'name', 'text', 
   'wrapper', 'noLabel', 'id', 'value', 'text', 'many'];
   var datalistIdEnding = '_LIST';
+  var outputAreaClickTime;
 
 
   // Misc. private variables
@@ -226,7 +227,17 @@ var FormBuilder = (function() {
 
     outputElement.addEventListener('click', function()
     {
-      window.getSelection().selectAllChildren(this);      
+      newTime = Date.now();
+
+      if(outputAreaClickTime && (newTime - outputAreaClickTime) < 500)
+      {
+        window.getSelection().selectAllChildren(this); 
+        outputAreaClickTime = newTime;        
+      }   
+      else
+      {
+        outputAreaClickTime = newTime;
+      }   
     });
   }
   
@@ -377,8 +388,8 @@ var FormBuilder = (function() {
   var createCheckboxInput = function(formElement)
   {
     outputString = '';
-    formElement['name'] = formElement['name'] + '[]';    
-    sendVariables.push(formElement['name']);          
+    sendVariables.push(formElement['name']);      
+    formElement['name'] = formElement['name'] + '[]';            
 
     for(var j = 0; j < formElement['many'].length; j++)
     {
@@ -404,8 +415,8 @@ var FormBuilder = (function() {
 
     if(details.hasOwnProperty('multiple'))
     {
+      sendVariables.push(thisName);      
       thisName = details.name + '[]';      
-      sendVariables.push(thisName);
     }
     else 
     {
@@ -463,7 +474,7 @@ var FormBuilder = (function() {
     var outputString = '';
     sendVariables.push(name);
 
-    if(!text)
+    if(!text && echoValues)
     {
       text = '&lt?php echo $' + name + '; ?>';
     }
@@ -654,7 +665,7 @@ var FormBuilder = (function() {
     var label = '';
     var text = (details.text) ? details.text : '';
 
-    if(details.noLabel !== 'true')
+    if(!details.noLabel)
     {
       var indent = (details.wrapper) ? indentValue : '';
       label = indent + '&ltlabel for="' + thisFor + '">' + text + '&lt/label><br>';
