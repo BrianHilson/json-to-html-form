@@ -1,10 +1,5 @@
 # JSON to HTML Form
 
-## Demo
-https://www.hilson.io/form_builder_app/
-
-This page always has the most up to date version of the app.
-
 ## Why This Exists
 
 Creating forms is annoying, especially when you add PHP variables into the mix. Take for example, the humble input element:
