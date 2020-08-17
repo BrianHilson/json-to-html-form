@@ -103,7 +103,7 @@ The radio input, checkbox input, select, and datalist elements all use the "many
 
 ## Example: Radio Input
 
-Note: The remaining example do not include the "settings" or "form" syntax, just the syntax for each individual element. See the demo above for an example of creating a form with many elements.
+Note: The remaining examples do not include the "settings" or "form" syntax, just the syntax for each individual element. See the demo above for an example of creating a form with many elements.
 
 This:
 ```JSON
